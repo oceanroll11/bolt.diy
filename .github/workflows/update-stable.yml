@@ -62,9 +62,9 @@ jobs:
         env:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
-          if [[ $COMMIT_MSG =~ "#release:major" ]]; then
+          if [[ "$COMMIT_MSG" =~ "#release:major" ]]; then
             echo "bump=major" >> $GITHUB_OUTPUT
-          elif [[ $COMMIT_MSG =~ "#release:minor" ]]; then
+          elif [[ "$COMMIT_MSG" =~ "#release:minor" ]]; then
             echo "bump=minor" >> $GITHUB_OUTPUT
           else
             echo "bump=patch" >> $GITHUB_OUTPUT
